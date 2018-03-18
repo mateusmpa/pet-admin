@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180318014911) do
+ActiveRecord::Schema.define(version: 20180318020015) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -170,6 +170,15 @@ ActiveRecord::Schema.define(version: 20180318014911) do
     t.index ["reset_password_token"], name: "index_fae_users_on_reset_password_token", unique: true, using: :btree
     t.index ["role_id"], name: "index_fae_users_on_role_id", using: :btree
     t.index ["unlock_token"], name: "index_fae_users_on_unlock_token", unique: true, using: :btree
+  end
+
+  create_table "suppliers", force: :cascade do |t|
+    t.string   "name"
+    t.text     "observations"
+    t.string   "email"
+    t.string   "phone"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
 end
